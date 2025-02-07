@@ -1,4 +1,6 @@
 class Rescaler:
+    DIVISIBILITY_FACTOR = 8  # Added constant
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -23,4 +25,15 @@ class Rescaler:
             ratio = limit / float(height)
         new_width = int(round(width * ratio))
         new_height = int(round(height * ratio))
+
+        # Ensure new_width is divisible by the constant
+        remainder_width = new_width % self.DIVISIBILITY_FACTOR
+        if remainder_width:
+            new_width += (self.DIVISIBILITY_FACTOR - remainder_width)
+
+        # Ensure new_height is divisible by the constant
+        remainder_height = new_height % self.DIVISIBILITY_FACTOR
+        if remainder_height:
+            new_height += (self.DIVISIBILITY_FACTOR - remainder_height)
+
         return (new_width, new_height, width, height, limit)
