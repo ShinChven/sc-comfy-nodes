@@ -14,7 +14,7 @@ class Rescaler:
     RETURN_TYPES = ("INT", "INT", "INT", "INT", "INT")
     RETURN_NAMES = ("new width", "new height", "original width", "original height", "limit")
     FUNCTION = "process"
-    CATEGORY = "Custom"
+    CATEGORY = "Image Dimensions"
 
     def process(self, width, height, limit):
         if width <= 0 or height <= 0 or limit <= 0:
