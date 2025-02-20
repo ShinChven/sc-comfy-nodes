@@ -11,8 +11,8 @@ class Rescaler:
             }
         }
 
-    RETURN_TYPES = ("INT", "INT", "INT", "INT", "INT")
-    RETURN_NAMES = ("new width", "new height", "original width", "original height", "limit")
+    RETURN_TYPES = ("INT", "INT", "INT", "INT", "INT", "STRING")
+    RETURN_NAMES = ("new width", "new height", "original width", "original height", "limit", "formatted")
     FUNCTION = "process"
     CATEGORY = "Image Dimensions"
 
@@ -36,4 +36,6 @@ class Rescaler:
         if remainder_height:
             new_height += (self.DIVISIBILITY_FACTOR - remainder_height)
 
-        return (new_width, new_height, width, height, limit)
+        formatted_string = f"New Width: {new_width},\nNew Height: {new_height},\nOriginal Width: {width},\nOriginal Height: {height},\nLimit: {limit}"
+
+        return (new_width, new_height, width, height, limit, formatted_string)

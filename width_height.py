@@ -11,8 +11,8 @@ class WidthHeight:
             }
         }
 
-    RETURN_TYPES = ("INT", "INT", "INT", "INT", "FLOAT")
-    RETURN_NAMES = ("target width", "target height", "original width", "original height", "scale")
+    RETURN_TYPES = ("INT", "INT", "INT", "INT", "FLOAT", "STRING")
+    RETURN_NAMES = ("target width", "target height", "original width", "original height", "scale", "formatted")
     FUNCTION = "process"
     CATEGORY = "Image Dimensions"
 
@@ -28,4 +28,6 @@ class WidthHeight:
         target_width = round(target_width / self.DIVISIBILITY_FACTOR) * self.DIVISIBILITY_FACTOR
         target_height = round(target_height / self.DIVISIBILITY_FACTOR) * self.DIVISIBILITY_FACTOR
 
-        return (target_width, target_height, width, height, scale)
+        formatted_string = f"Target Width: {target_width},\nTarget Height: {target_height},\nOriginal Width: {width},\nOriginal Height: {height},\nScale: {scale}"
+
+        return (target_width, target_height, width, height, scale, formatted_string)
