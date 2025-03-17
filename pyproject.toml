@@ -1,0 +1,14 @@
+[project]
+name = "sc-comfy-nodes"
+description = "This project contains custom nodes for ComfyUI, developed by ShinChven. The nodes in this package extend the functionality of ComfyUI by providing additional features and utilities."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/ShinChven/sc-comfy-nodes"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "shinchven"
+DisplayName = "sc-comfy-nodes"
+Icon = ""
