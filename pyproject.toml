@@ -9,6 +9,6 @@ Repository = "https://github.com/ShinChven/sc-comfy-nodes"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "shinchven"
 DisplayName = "sc-comfy-nodes"
 Icon = ""
