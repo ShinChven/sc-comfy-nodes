@@ -1,13 +1,14 @@
+MAX_RESOLUTION=16384
+DIVISIBILITY_FACTOR = 8
 class Rescaler:
-    DIVISIBILITY_FACTOR = 8  # Added constant
 
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "width": ("INT", {"default": 1, "defaultInput": True}),
-                "height": ("INT", {"default": 1, "defaultInput": True}),
-                "limit": ("INT", {"default": 2048}),
+				"width": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+				"height": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+				"limit": ("INT", {"default": 2048, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
             }
         }
 

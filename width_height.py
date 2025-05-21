@@ -1,12 +1,13 @@
+MAX_RESOLUTION=16384
+DIVISIBILITY_FACTOR = 8
 class WidthHeight:
-    DIVISIBILITY_FACTOR = 8
 
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "width": ("INT", {"default": 512, }),
-                "height": ("INT", {"default": 512, }),
+                "width": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+                "height": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
                 "scale": ("FLOAT", {"default": 1.0, }),
             }
         }
