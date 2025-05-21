@@ -1,14 +1,17 @@
-MAX_RESOLUTION=16384
+MAX_RESOLUTION = 16384
 DIVISIBILITY_FACTOR = 8
+
 class Rescaler:
+
+
 
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-				"width": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
-				"height": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
-				"limit": ("INT", {"default": 2048, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+                "width": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+                "height": ("INT", {"default": 512, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
+                "limit": ("INT", {"default": 2048, "min": DIVISIBILITY_FACTOR, "max": MAX_RESOLUTION, "step": DIVISIBILITY_FACTOR}),
             }
         }
 
@@ -28,14 +31,14 @@ class Rescaler:
         new_height = int(round(height * ratio))
 
         # Ensure new_width is divisible by the constant
-        remainder_width = new_width % self.DIVISIBILITY_FACTOR
+        remainder_width = new_width % DIVISIBILITY_FACTOR
         if remainder_width:
-            new_width += (self.DIVISIBILITY_FACTOR - remainder_width)
+            new_width += (DIVISIBILITY_FACTOR - remainder_width)
 
         # Ensure new_height is divisible by the constant
-        remainder_height = new_height % self.DIVISIBILITY_FACTOR
+        remainder_height = new_height % DIVISIBILITY_FACTOR
         if remainder_height:
-            new_height += (self.DIVISIBILITY_FACTOR - remainder_height)
+            new_height += (DIVISIBILITY_FACTOR - remainder_height)
 
         formatted_string = f"New Width: {new_width},\nNew Height: {new_height},\nOriginal Width: {width},\nOriginal Height: {height},\nLimit: {limit}"
 

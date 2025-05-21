@@ -2,6 +2,7 @@ MAX_RESOLUTION=16384
 DIVISIBILITY_FACTOR = 8
 class WidthHeight:
 
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -26,8 +27,8 @@ class WidthHeight:
         target_height = height * scale
 
         # Round to nearest multiple of 8
-        target_width = round(target_width / self.DIVISIBILITY_FACTOR) * self.DIVISIBILITY_FACTOR
-        target_height = round(target_height / self.DIVISIBILITY_FACTOR) * self.DIVISIBILITY_FACTOR
+        target_width = round(target_width / DIVISIBILITY_FACTOR) * DIVISIBILITY_FACTOR
+        target_height = round(target_height / DIVISIBILITY_FACTOR) * DIVISIBILITY_FACTOR
 
         formatted_string = f"Target Width: {target_width},\nTarget Height: {target_height},\nOriginal Width: {width},\nOriginal Height: {height},\nScale: {scale}"
 
